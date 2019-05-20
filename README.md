@@ -1,6 +1,6 @@
-# static-bp
+# JH Static Boilerplate
 
-A minimalistic, modular frontend boilerplate to be used as a starting point for static site and component library builds, made with up to date tooling for 2019.
+A minimalistic, modular frontend boilerplate to be used as a starting point for static website and component library builds, made with up to date tooling for 2019.
 
 
 ## Node version
@@ -24,7 +24,7 @@ Windows 8.1 Pro
 
 ## Setup guide
 
-1. `cd static-bp/`
+1. `cd jh-static-bp/`
 2. `npm run setup`
 
 
@@ -434,4 +434,4 @@ Quick links to documentation for various technologies used in the boilerplate ar
 
 ### I've added or changed a font but it isn't updating in the built output
 
-There is a known issue with some of the copying tasks where they don't overwrite files that already exist, even when they should. This will be fixed soon, as a workaround you can simply locate the offending file in the `temp` directory and delete it manually (depending which file this is it may then be necessary to re-run the `setup:bp` task afterwards to regenerate the files in question).
+There is a known issue with some of the copying tasks where they don't overwrite files that already exist, even when they should. This should be fixed soon, as a workaround you can simply locate the offending file in the `temp` directory and delete it manually (depending which file this is it may then be necessary to re-run the `setup:bp` task afterwards to regenerate the files in question).
