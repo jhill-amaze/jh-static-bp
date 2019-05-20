@@ -63,4 +63,6 @@ sftp-config*
 ####################
 build/*
 temp/*
+src/sass/lib/*
+!*/sass/lib/webfontfaces.css
 release/*

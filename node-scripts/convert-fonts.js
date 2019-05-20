@@ -8,7 +8,6 @@ const generateWoff2 = process.argv[5];
 
 if (inDir[inDir.length - 1] !== "/") { inDir += "/"; }
 if (outDir[outDir.length - 1] !== "/") { outDir += "/"; }
-if (cssOutPath[cssOutPath.length - 1] !== "/") { cssOutPath += "/"; }
 
 console.log(`convert-fonts.js: running with input directory ${inDir}`);
 
