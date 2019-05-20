@@ -1,0 +1,31 @@
+{
+	"inputRoot": "./build/",
+	"outputRoot": "./release/",
+	"items": [
+		{
+			"inPath": "demo/index.html",
+			"outDir": "/",
+			"outName": "index.html"
+		},
+		{
+			"inPath": "css/",
+			"outDir": "css/"
+		},
+		{
+			"inPath": "fonts/",
+			"outDir": "fonts/"
+		},
+		{
+			"inPath": "img/",
+			"outDir": "img/"
+		},
+		{
+			"inPath": "js/",
+			"outDir": "js/"
+		},
+		{
+			"inPath": "favicon.ico",
+			"outDir": "/"
+		}
+	]
+}

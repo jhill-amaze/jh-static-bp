@@ -1,0 +1,25 @@
+// Extend for screen reader only styling - used to hide elements visually while keeping them accessible to screen readers
+%sr-only {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+// Responsive background image mixin - takes a map of image sources in the following format:
+// (
+// 	'1x': 'my-background-1x.jpg',
+// 	'2x': 'my-background-2x.jpg'
+// )
+// Used to easily add responsive background images where required, including a fallback for browsers that don't support image-set
+@mixin responsive-bg ($imageSourcesMap, $key) {
+
+	$sources: map-get($imageSourcesMap, $key);
+	
+	background-image: url(#{map-get($sources, '1x')});
+	background-image: image-set(
+		url(#{map-get($sources, '1x')}) 1x,
+		url(#{map-get($sources, '2x')}) 2x
+	);
+}

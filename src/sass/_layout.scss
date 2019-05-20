@@ -1,0 +1,46 @@
+// Global SASS relating to layout, spacing, gutters etc.
+@import "./_breakpoints.scss";
+
+$layout_body_margin: 0.5rem;
+$base_font_size: 16px;
+$content_constraint: 1200px;
+
+// Standard set of named spacing values used by the "spacing" function. This helps avoid a large set of inconsistent spacing values creeping in over time.
+$spacings: (
+	'exa': 120px,
+	'peta': 100px,
+	'tera': 80px,
+	'mega': 60px,
+	'kilo': 50px,
+	'hecto': 40px,
+	'deci': 30px,
+	'milli': 20px,
+	'nano': 10px,
+	'femto': 5px
+);
+
+// Provides a convenient way to retreive named spacing values from the $spacings map
+@function spacing($size) {
+	@if map-has-key($spacings, $size) {
+		@return map-get($spacings, $size);
+	}
+	@else {
+		@warn "ERROR: Key `#{$size}` not found in $spacings";
+	}
+}
+
+// Used to constrain an element to a max-width of the site's content column width
+@mixin content-constraint {
+	
+	max-width: $content_constraint;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: rem(spacing(milli));
+	padding-right: rem(spacing(milli));
+
+	@include bp-min (lg) {
+
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

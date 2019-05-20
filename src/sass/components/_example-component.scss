@@ -1,0 +1,39 @@
+$example-component-images: (
+	'example': (
+		'1x': '../img/bg-1x.png',
+		'2x': '../img/bg-2x.png'
+	)
+);
+
+.example-component {
+	
+	display: block;
+
+	@include responsive-bg($example-component-images, 'example');
+
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&__container {
+
+		@include content-constraint;
+	}
+
+	&__heading {
+
+		@include typeface(item);
+	}
+
+	&__cta {
+
+		@include button(white, poppy);
+
+		color: get-colour(emerald);
+
+		@include bp-min (md) {
+
+			color: get-colour(mountain);
+		}
+	}
+}

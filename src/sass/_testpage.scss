@@ -1,0 +1,163 @@
+// SASS for the demo page - not especially important
+@import "./_colours.scss";
+@import "./_icons.scss";
+@import "./_typefaces.scss";
+
+.demopage {
+
+	background-color: #888;
+
+	&__section {
+
+		margin-bottom: 2rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.example-theme {
+	
+	display: block;
+	transition: 1s;
+	transform: rotate(0deg);
+	background: theme-colour(example-theme, bg);
+
+	&__heading {
+
+		color: theme-colour(example-theme, heading);
+	}
+
+	&__copy {
+
+		color: theme-colour(example-theme, copy);
+	}
+
+	&__link {
+
+		background-color: theme-colour(example-theme, link-bg);
+		color: theme-colour(example-theme, link-text);
+	}
+}
+
+.colour-palette {
+
+	$root: &;
+
+	&__list {
+
+		padding-left: 0;
+	}
+
+	&__swatch {
+
+		display: block;
+		position: relative;
+		height: 6rem;
+		list-style-type: none;
+
+		@each $name, $colour in $colours {
+
+			&--#{$name} {
+
+				background-color: $colour;
+			}
+		}
+
+		&-name {
+
+			display: block;
+			position: absolute;
+			top: 0.5rem;
+			left: 0.5rem;
+			padding: 0.25rem;
+			background-color: rgba(0,0,0,0.5);
+			color: #ddd;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.icons-palette {
+
+	$root: &;
+
+	&__list {
+
+		padding-left: 0;
+	}
+
+	&__item {
+
+		display: block;
+		position: relative;
+		height: 4rem;
+		list-style-type: none;
+		background-color: get-colour(asphalt);
+		margin: 0.25rem;
+		height: 7rem;
+
+		&-name {
+
+			display: block;
+			position: absolute;
+			top: 0.5rem;
+			left: 0.5rem;
+			padding: 0.25rem;
+			background-color: rgba(0,0,0,0.5);
+			color: #ddd;
+			text-transform: uppercase;
+		}
+
+		&-icon {
+			display: block;
+			position: absolute;
+			top: 60%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			&:before {
+				font-size: 3rem;
+				color: get-colour(white);
+			}
+		}
+	}
+}
+
+.example-icon-mixin {
+
+	background-color: get-colour(belize);
+	padding: 1rem;
+	text-align: center;
+
+	@include icon(email, before) {
+		font-size: 3rem;
+		color: get-colour(white);
+		margin: 0 auto;
+	}
+}
+
+.typeface-test {
+
+	@each $name, $typeface in $typefaces {
+
+		&--#{$name} {
+
+			@include typeface($name);
+		}
+	}
+}
+
+.heightnorm-demo {
+
+	&__item {
+
+		padding: 10px;
+
+		&-inner {
+
+			background-color: get-colour(silversand);
+		}
+	}
+}

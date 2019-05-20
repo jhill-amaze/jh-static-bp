@@ -1,0 +1,24 @@
+// Global SASS relating to breakpoints, media queries and responsiveness
+
+// defines named breakpoint sizes for media queries
+$breakpoints: (
+	'xs': 480px,
+	'sm': 768px,
+	'md': 1024px,
+	'lg': 1280px
+);
+
+// provides a convenient way to write media queries referencing the named breakpoints, for example:
+// 		@include bp-min (sm) {
+// 			// props
+// 		}
+@mixin bp-min($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+	@else {
+		@warn "ERROR: Key `#{$breakpoint}` not found in $breakpoints"
+	}
+}

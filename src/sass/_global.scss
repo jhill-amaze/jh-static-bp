@@ -1,0 +1,25 @@
+// Global styling (any styling that applies to the entire site/UI)
+@import "./_typefaces.scss";
+
+body {
+
+	@include fontfam('regular');
+	@include typeface(copy);
+	
+	background: get-colour(white);
+	margin: 0;
+	padding: 0;
+	color: $base_font_colour;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include fontfam('bold');
+
+	font-weight: normal;
+}

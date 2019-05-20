@@ -1,0 +1,23 @@
+// This file is provided as a place to group together mixins for commonly reused items that need to be referenced in many different components, such as buttons, form inputs etc.
+@import "./_layout.scss";
+@import "./_typefaces.scss";
+@import "./_colours.scss";
+
+@mixin button ($textColName: 'white', $bgColName: 'eggplant') {
+	
+	@include typeface(cta);
+	
+	display: block;
+	box-sizing: border-box;
+	width: rem(220px);
+	padding: rem(18px) rem(spacing(deci));
+	color: get-colour($textColName);
+	background-color: get-colour($bgColName);
+	text-decoration: none;
+	text-align: center;
+	transition: background 0.3s ease;
+
+	&:hover {
+		background-color: darken(get-colour($bgColName), 5%);
+	}
+}

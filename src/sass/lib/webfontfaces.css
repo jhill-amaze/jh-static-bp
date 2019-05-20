@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'RobotoSlab-Regular';
+	src: url('../fonts/robotoslab-regular-webfont.woff2') format('woff2'),
+		url('../fonts/robotoslab-regular-webfont.woff') format('woff');
+}
+@font-face {
+	font-family: 'RobotoSlab-Light';
+	src: url('../fonts/robotoslab-light-webfont.woff2') format('woff2'),
+		url('../fonts/robotoslab-light-webfont.woff') format('woff');
+}
+@font-face {
+	font-family: 'RobotoSlab-Bold';
+	src: url('../fonts/robotoslab-bold-webfont.woff2') format('woff2'),
+		url('../fonts/robotoslab-bold-webfont.woff') format('woff');
+}

@@ -1,0 +1,74 @@
+// Global SASS relating to typography (as opposed to fonts, which are handled in a separate SASS file)
+@import "./_breakpoints.scss";
+@import "./_colours.scss";
+
+$base_font_colour: get-colour(tundora);
+
+// defines named typography styles which are referenced using a mixin. Helps to avoid a large set of arbitrary non-reusable typography styles defined in components.
+$typefaces: (
+	'page': (
+		'font-family': f-fontfam('bold'),
+		'line-height': 1.15,
+		'size-mobile': rem(36px),
+		'size-desktop': rem(60px),
+		'letter-spacing': 1px
+	),
+	'section': (
+		'font-family': f-fontfam('regular'),
+		'line-height': 1.2,
+		'size-mobile': rem(24px),
+		'size-desktop': rem(36px),
+		'letter-spacing': 0.5px
+	),
+	'item': (
+		'font-family': f-fontfam('regular'),
+		'line-height': 1.15,
+		'size-mobile': rem(18px),
+		'size-desktop': rem(28px),
+		'letter-spacing': 0.4px
+	),
+	'copy': (
+		'font-family': f-fontfam('light'),
+		'line-height': 1.75,
+		'size-mobile': rem(14px),
+		'size-desktop': rem(14px),
+		'letter-spacing': 0.25px
+	),
+	'cta': (
+		'font-family': f-fontfam('bold'),
+		'line-height': 1.75,
+		'size-mobile': rem(14px),
+		'size-desktop': rem(14px),
+		'letter-spacing': 1px
+	)
+);
+
+// Provides a convenient way to include typography styles by name wherever they are required
+@mixin typeface($name) {
+
+	@if map-has-key($typefaces, $name) {
+
+		$face: map-get($typefaces, $name);
+
+		font-family: map-get($face, 'font-family');
+		line-height: map-get($face, 'line-height');
+		font-size: map-get($face, 'size-mobile');
+		letter-spacing: map-get($face, 'letter-spacing');
+		@content;
+
+		@include bp-min(md) {
+
+			font-size: map-get($face, 'size-desktop');
+			@content;
+		}
+	}
+	@else {
+		@warn "ERROR: Key `#{$name}` not found in $typefaces";
+	}
+}
+
+// Converts pixels to REM units
+@function rem($size) {
+	$remSize: $size / $base_font_size;
+	@return #{$remSize}rem;
+}

@@ -1,0 +1,25 @@
+// Global SASS relating to fonts goes here. Typography rules are found in a separate "typefaces" file.
+@import './lib/fontfaces.css';
+@import './lib/webfontfaces.css';
+
+// Named font families. This approach simplifies the process of changing to a different font by providing a single location where the font family names need to be updated without impacting the rest of the SASS.
+$font-families: (
+	'bold': 'RobotoSlab-Bold',
+	'light': 'RobotoSlab-Light',
+	'regular': 'RobotoSlab-Regular'
+);
+
+// Provides a convenient way to get a font family from the map by name (font family name only)
+@function f-fontfam($key) {
+	@return map-get($font-families, $key);
+}
+
+// Provides a convenient way to get a font family from the map by name (full font-family property)
+@mixin fontfam($key) {
+	@if map-has-key($font-families, $key) {
+		font-family: map-get($font-families, $key);
+	}
+	@else {
+		@warn "ERROR: Key `#{$key}` not found in $font-families"
+	}
+}

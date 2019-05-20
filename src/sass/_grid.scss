@@ -1,0 +1,110 @@
+// Global SASS relating to the grid system
+
+// Defines number of grid columns at each named breakpoint size (breakpoint names should match those in _breakpoints.scss)
+$grid_cols: (
+	'xs': 6,
+	'sm': 12,
+	'md': 12,
+	'lg': 12
+);
+$grid_gutter: 10px;
+$grid_gutter_large: 25px;
+
+// Mixin which generates a series of grid column styles by iterating the $grid_cols map
+@mixin grid-generator($size, $cols) {
+	@for $i from 1 through $cols {
+		.col-#{$size}-#{$i} {
+			width: percentage($i / $cols);
+		}
+	}
+}
+
+// Returns the associated percentage width value for the supplied 12-column grid column size
+@function width-for-12-col($colSize) {
+	@return $colSize * percentage(1 / 12);
+}
+
+
+// NOTE: the grid, row and column CSS properties are based on those in the bootstrap grid system: [https://github.com/twbs/bootstrap/blob/master/dist/css/bootstrap-grid.css]
+.grid {
+
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-right: 0;
+	padding-left: 0;
+	margin-right: auto;
+	margin-left: auto;
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	[class*="col-"] {
+
+		box-sizing: border-box;
+	}
+
+	&--gutter,
+	&--gutter-large {
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--gutter {
+		padding-left: $grid_gutter;
+		padding-right: $grid_gutter;
+
+		.row {
+			margin-left: -$grid_gutter;
+			margin-right: -$grid_gutter;
+
+			[class*="col-"] {
+
+				padding-left: $grid_gutter;
+				padding-right: $grid_gutter;
+			}
+		}
+	}
+
+	&--gutter-large {
+
+		padding-left: $grid_gutter_large;
+		padding-right: $grid_gutter_large;
+
+		.row {
+			margin-left: -$grid_gutter_large;
+			margin-right: -$grid_gutter_large;
+
+			[class*="col-"] {
+
+				padding-left: $grid_gutter_large;
+				padding-right: $grid_gutter_large;
+			}
+		}
+	}
+	
+	// Generate columns
+	@include grid-generator('xs', map-get($grid_cols, 'xs'));
+
+	&-demo {
+		display: block;
+		margin: 0.25rem;
+		padding: 0.5rem;
+		text-align: center;
+		background: rgba(0,0,0,0.33);
+	}
+
+	$mq-bp-list: 'sm', 'md', 'lg';
+
+	@each $mq-bp in $mq-bp-list {
+
+		@include bp-min($mq-bp) {
+			@include grid-generator($mq-bp, map-get($grid_cols, $mq-bp));
+		}
+	}
+}

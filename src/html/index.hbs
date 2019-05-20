@@ -1,0 +1,13 @@
+---
+layout: default.hbs
+title: Index
+---
+
+<h1>Templates index</h1>
+<ul class="index-list">
+	{{#each index.listing.items}}
+		<li class="index-list__item">
+			<a class="index-list__link" href="/{{this}}">{{this}}</a>
+		</li>
+	{{/each}}
+</ul>

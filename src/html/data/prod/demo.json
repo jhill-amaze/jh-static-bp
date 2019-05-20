@@ -1,0 +1,38 @@
+{
+	"heading": "Static Boilerplate v1.1 - Demo Page",
+	"exampleComponent": {
+		"content": "This page is used for demos and testing of included functionality."
+	},
+	"colourPalette": {
+		"colourNames": [
+			"black",
+			"white",
+			"mountain",
+			"greensea",
+			"emerald",
+			"abbey",
+			"river",
+			"belize",
+			"wisteria",
+			"studio",
+			"asphalt",
+			"midnight",
+			"sunflower",
+			"tangerine",
+			"carrot",
+			"pumpkin",
+			"cinnabar",
+			"poppy",
+			"cloud",
+			"silversand",
+			"concrete",
+			"oslo"
+		]
+	},
+	"iconPalette": {
+		"iconNames": [
+			"email",
+			"facebook"
+		]
+	}
+}

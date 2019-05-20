@@ -1,0 +1,50 @@
+// Global SASS relating to colours, themes and palettes
+
+// pool of named colours, free of any usage context. Names should reflect this.
+$colours: (
+	black: #000000,
+	white: #ffffff,
+	mountain: #1abc9c,
+	greensea: #16a085,
+	emerald: #2ecc71,
+	abbey: #27ae60,
+	river: #3498db,
+	belize: #2980b9,
+	wisteria: #9b59b6,
+	studio: #8e44ad,
+	asphalt: #34495e,
+	midnight: #2c3e50,
+	sunflower: #f1c40f,
+	tangerine: #f39c12,
+	carrot: #e67e22,
+	pumpkin: #d35400,
+	cinnabar: #e74c3c,
+	poppy: #c0392b,
+	cloud: #ecf0f1,
+	silversand: #bdc3c7,
+	concrete: #95a5a6,
+	oslo: #7f8c8d
+);
+
+// provides a convenient way to reference colours by their name in the $colours map.
+@function get-colour($key){
+ 	@return map-get($colours, $key);
+}
+
+// Each theme item represents a pre-defined colour theme or palette. These should reference the named values in $colours.
+$colour-themes: (
+	example-theme: (
+		bg: get-colour(midnight),
+		heading: get-colour(oslo),
+		copy: get-colour(silversand),
+		link-bg: get-colour(pumpkin),
+		link-text: get-colour(cloud),
+		success: get-colour(emerald),
+		failure: get-colour(cinnabar)
+	)
+);
+
+// provides a convenient way to reference colours from a specific theme.
+@function theme-colour($theme-key, $colour-key) {
+	@return map-get(map-get($colour-themes, $theme-key), $colour-key)
+}
