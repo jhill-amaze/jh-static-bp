@@ -21,6 +21,18 @@ Windows 10 Pro
 Windows 8.1 Pro
 ```
 
+## Requirements
+
+### Windows
+
+On Windows, [node-gyp](https://github.com/nodejs/node-gyp#installation) requires that the windows build tools are installed. Run a terminal as Administrator and do the following:
+
+```
+npm install --global --production windows-build-tools
+```
+
+This should be done before attempting to run the `setup` task (it calls `npm install` which will fail without the build tools).
+
 
 ## Setup guide
 
