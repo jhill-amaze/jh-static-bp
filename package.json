@@ -68,7 +68,7 @@
 		"cssnano-preset-default": "^4.0.7",
 		"del-cli": "^1.1.0",
 		"es-check": "^5.0.0",
-		"jquery": "^3.4.0",
+		"jquery": "^3.5.0",
 		"mkdirp": "^0.5.1",
 		"ncp": "^2.0.0",
 		"node-sass": "^4.11.0",
