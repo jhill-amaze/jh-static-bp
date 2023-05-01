@@ -52,7 +52,7 @@
 	"license": "ISC",
 	"homepage": "https://bitbucket.org/jameshill88/static-bp#readme",
 	"devDependencies": {
-		"@11ty/eleventy": "^0.8.2",
+		"@11ty/eleventy": "^2.0.1",
 		"@babel/core": "^7.4.3",
 		"@babel/preset-env": "^7.4.3",
 		"@webpack-cli/init": "^0.1.5",
